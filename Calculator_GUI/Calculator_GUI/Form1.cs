@@ -10,36 +10,37 @@ namespace Calculator_GUI
             InitializeComponent();
         }
 
-        private string newnum = string.Empty;
-        private string newnum2 = string.Empty;
+        private decimal newnum;
+        private decimal newnum2;
         private string operationsym = string.Empty;
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (outputfield.Text == "+" || outputfield.Text == "-" || outputfield.Text == "*" || outputfield.Text == "/")
             {
-                if (string.IsNullOrEmpty(newnum))
+                if (operationsym == "")
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "1";
-                    newnum = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum);
                 }
                 else
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "1";
-                    newnum2 = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum2);
                 }
             }
-            else if (string.IsNullOrEmpty(newnum))
+            else
+                if (operationsym == "")
             {
                 outputfield.Text += "1";
-                newnum = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum);
             }
             else
             {
                 outputfield.Text += "1";
-                newnum2 = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum2);
             }
         }
 
@@ -47,28 +48,29 @@ namespace Calculator_GUI
         {
             if (outputfield.Text == "+" || outputfield.Text == "-" || outputfield.Text == "*" || outputfield.Text == "/")
             {
-                if (string.IsNullOrEmpty(newnum))
+                if (operationsym == "")
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "2";
-                    newnum = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum);
                 }
                 else
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "2";
-                    newnum2 = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum2);
                 }
             }
-            else if (string.IsNullOrEmpty(newnum))
+            else
+                if (operationsym == "")
             {
                 outputfield.Text += "2";
-                newnum = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum);
             }
             else
             {
                 outputfield.Text += "2";
-                newnum2 = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum2);
             }
         }
 
@@ -76,28 +78,29 @@ namespace Calculator_GUI
         {
             if (outputfield.Text == "+" || outputfield.Text == "-" || outputfield.Text == "*" || outputfield.Text == "/")
             {
-                if (string.IsNullOrEmpty(newnum))
+                if (operationsym == "")
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "3";
-                    newnum = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum);
                 }
                 else
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "3";
-                    newnum2 = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum2);
                 }
             }
-            else if (string.IsNullOrEmpty(newnum))
+            else
+                if (operationsym == "")
             {
                 outputfield.Text += "3";
-                newnum = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum);
             }
             else
             {
                 outputfield.Text += "3";
-                newnum2 = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum2);
             }
         }
 
@@ -105,28 +108,29 @@ namespace Calculator_GUI
         {
             if (outputfield.Text == "+" || outputfield.Text == "-" || outputfield.Text == "*" || outputfield.Text == "/")
             {
-                if (string.IsNullOrEmpty(newnum))
+                if (operationsym == "")
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "4";
-                    newnum = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum);
                 }
                 else
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "4";
-                    newnum2 = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum2);
                 }
             }
-            else if (string.IsNullOrEmpty(newnum))
+            else
+                if (operationsym == "")
             {
                 outputfield.Text += "4";
-                newnum = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum);
             }
             else
             {
                 outputfield.Text += "4";
-                newnum2 = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum2);
             }
         }
 
@@ -134,28 +138,29 @@ namespace Calculator_GUI
         {
             if (outputfield.Text == "+" || outputfield.Text == "-" || outputfield.Text == "*" || outputfield.Text == "/")
             {
-                if (string.IsNullOrEmpty(newnum))
+                if (operationsym == "")
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "5";
-                    newnum = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum);
                 }
                 else
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "5";
-                    newnum2 = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum2);
                 }
             }
-            else if (string.IsNullOrEmpty(newnum))
+            else
+                if (operationsym == "")
             {
                 outputfield.Text += "5";
-                newnum = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum);
             }
             else
             {
                 outputfield.Text += "5";
-                newnum2 = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum2);
             }
         }
 
@@ -163,28 +168,29 @@ namespace Calculator_GUI
         {
             if (outputfield.Text == "+" || outputfield.Text == "-" || outputfield.Text == "*" || outputfield.Text == "/")
             {
-                if (string.IsNullOrEmpty(newnum))
+                if (operationsym == "")
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "6";
-                    newnum = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum);
                 }
                 else
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "6";
-                    newnum2 = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum2);
                 }
             }
-            else if (string.IsNullOrEmpty(newnum))
+            else
+                if (operationsym == "")
             {
                 outputfield.Text += "6";
-                newnum = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum);
             }
             else
             {
                 outputfield.Text += "6";
-                newnum2 = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum2);
             }
         }
 
@@ -192,28 +198,29 @@ namespace Calculator_GUI
         {
             if (outputfield.Text == "+" || outputfield.Text == "-" || outputfield.Text == "*" || outputfield.Text == "/")
             {
-                if (string.IsNullOrEmpty(newnum))
+                if (operationsym == "")
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "7";
-                    newnum = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum);
                 }
                 else
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "7";
-                    newnum2 = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum2);
                 }
             }
-            else if (string.IsNullOrEmpty(newnum))
+            else
+                if (operationsym == "")
             {
                 outputfield.Text += "7";
-                newnum = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum);
             }
             else
             {
                 outputfield.Text += "7";
-                newnum2 = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum2);
             }
         }
 
@@ -221,28 +228,29 @@ namespace Calculator_GUI
         {
             if (outputfield.Text == "+" || outputfield.Text == "-" || outputfield.Text == "*" || outputfield.Text == "/")
             {
-                if (string.IsNullOrEmpty(newnum))
+                if (operationsym == "")
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "8";
-                    newnum = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum);
                 }
                 else
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "8";
-                    newnum2 = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum2);
                 }
             }
-            else if (string.IsNullOrEmpty(newnum))
+            else
+                if (operationsym == "")
             {
                 outputfield.Text += "8";
-                newnum = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum);
             }
             else
             {
                 outputfield.Text += "8";
-                newnum2 = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum2);
             }
         }
 
@@ -250,28 +258,29 @@ namespace Calculator_GUI
         {
             if (outputfield.Text == "+" || outputfield.Text == "-" || outputfield.Text == "*" || outputfield.Text == "/")
             {
-                if (string.IsNullOrEmpty(newnum))
+                if (operationsym == "")
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "9";
-                    newnum = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum);
                 }
                 else
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "9";
-                    newnum2 = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum2);
                 }
             }
-            else if (string.IsNullOrEmpty(newnum))
+            else
+                if (operationsym == "")
             {
                 outputfield.Text += "9";
-                newnum = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum);
             }
             else
             {
                 outputfield.Text += "9";
-                newnum2 = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum2);
             }
         }
 
@@ -279,28 +288,29 @@ namespace Calculator_GUI
         {
             if (outputfield.Text == "+" || outputfield.Text == "-" || outputfield.Text == "*" || outputfield.Text == "/")
             {
-                if (string.IsNullOrEmpty(newnum))
+                if (operationsym == "")
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "0";
-                    newnum = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum);
                 }
                 else
                 {
                     outputfield.Text = string.Empty;
                     outputfield.Text += "0";
-                    newnum2 = outputfield.Text;
+                    decimal.TryParse(outputfield.Text, out newnum2);
                 }
             }
-            else if (string.IsNullOrEmpty(newnum))
+            else
+                if (operationsym == "")
             {
                 outputfield.Text += "0";
-                newnum = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum);
             }
             else
             {
                 outputfield.Text += "0";
-                newnum2 = outputfield.Text;
+                decimal.TryParse(outputfield.Text, out newnum2);
             }
         }
 
@@ -308,6 +318,9 @@ namespace Calculator_GUI
         {
             outputfield.Text = "+";
             this.operationsym = "+";
+
+            // Console.WriteLine("Operation: " + operationsym);
+            // Console.WriteLine("Number: " + newnum);
         }
 
         private void minus_Click(object sender, EventArgs e)
@@ -330,30 +343,38 @@ namespace Calculator_GUI
 
         private void gleich_Click(object sender, EventArgs e)
         {
-            // Strings in ints umwandeln und rechnen (Logik bleibt gleich)
-            int n1 = int.Parse(newnum);
-            int n2 = int.Parse(newnum2);
-
             if (operationsym == "+")
             {
-                int resultat = n1 + n2;
-                outputfield.Text = resultat.ToString();
+                decimal resultat = newnum + newnum2;
+                outputfield.Text = resultat.ToString("0.#######");
             }
             else if (operationsym == "-")
             {
-                int resultat = n1 - n2;
-                outputfield.Text = resultat.ToString();
+                decimal resultat = newnum - newnum2;
+                outputfield.Text = resultat.ToString("0.#######");
             }
+
             else if (operationsym == "*")
             {
-                int resultat = n1 * n2;
-                outputfield.Text = resultat.ToString();
+                decimal resultat = newnum * newnum2;
+                outputfield.Text = resultat.ToString("0.#######");
             }
+
             else if (operationsym == "/")
             {
-                int resultat = n1 / n2;
-                outputfield.Text = resultat.ToString();
+                decimal resultat = newnum / newnum2;
+                outputfield.Text = resultat.ToString("0.#######");
             }
+        }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            outputfield.Text = string.Empty;
+            operationsym = string.Empty;
+            newnum = 0;
+            newnum2 = 0;
         }
     }
 }
+
+// Wenn ich noch will, dass man die Operatoren auf das Resultat anwenden kann, müsste ich beim operationsym machen, dass es sich auf das resultat bezieht und am Schluss resultat als newnum speichern.

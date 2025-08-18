@@ -44,6 +44,7 @@
             durch = new Button();
             outputfield = new Label();
             gleich = new Button();
+            clear = new Button();
             SuspendLayout();
             // 
             // button1
@@ -193,9 +194,11 @@
             // outputfield
             // 
             outputfield.AutoSize = true;
-            outputfield.Location = new Point(171, 51);
+            outputfield.BackColor = Color.Transparent;
+            outputfield.Font = new Font("Segoe UI", 20F);
+            outputfield.Location = new Point(26, 24);
             outputfield.Name = "outputfield";
-            outputfield.Size = new Size(0, 25);
+            outputfield.Size = new Size(0, 54);
             outputfield.TabIndex = 15;
             // 
             // gleich
@@ -207,13 +210,25 @@
             gleich.TabIndex = 17;
             gleich.Text = "=";
             gleich.UseVisualStyleBackColor = false;
-            minus.Click += minus_Click;
+            gleich.Click += gleich_Click;
+            // 
+            // clear
+            // 
+            clear.BackColor = SystemColors.ActiveBorder;
+            clear.Location = new Point(12, 326);
+            clear.Name = "clear";
+            clear.Size = new Size(50, 50);
+            clear.TabIndex = 18;
+            clear.Text = "C";
+            clear.UseVisualStyleBackColor = false;
+            clear.Click += clear_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(242, 382);
+            Controls.Add(clear);
             Controls.Add(gleich);
             Controls.Add(outputfield);
             Controls.Add(durch);
@@ -254,5 +269,6 @@
         private Button durch;
         private Label outputfield;
         private Button gleich;
+        private Button clear;
     }
 }
