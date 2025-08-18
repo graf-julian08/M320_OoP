@@ -48,7 +48,7 @@ namespace ConsoleApp1
             }
             else 
             { 
-                return 0;
+                return a;
             }
         }
 

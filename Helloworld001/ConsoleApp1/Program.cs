@@ -8,11 +8,7 @@
 
             Console.WriteLine("Bitte geben Sie eine ganze, positive Zahl ein.");
             int a = Convert.ToInt32(Console.ReadLine());
-
             Mymath.ReadInt(a);
-
-
-
         }
     }
 }
