@@ -4,13 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            int b = 20;
 
-            int a = 6;
-            int b = 7;
-            int summe = Mymath.Add(a, b);
+            Console.WriteLine("Bitte geben Sie eine ganze, positive Zahl ein.");
+            int a = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"Die Summe von {a} und {b} ist {summe}.");
+            Mymath.ReadInt(a);
+
+
+
         }
     }
 }
