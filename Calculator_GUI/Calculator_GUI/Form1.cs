@@ -347,23 +347,27 @@ namespace Calculator_GUI
             {
                 decimal resultat = newnum + newnum2;
                 outputfield.Text = resultat.ToString("0.#######");
+                newnum = resultat;
             }
             else if (operationsym == "-")
             {
                 decimal resultat = newnum - newnum2;
                 outputfield.Text = resultat.ToString("0.#######");
+                newnum = resultat;
             }
 
             else if (operationsym == "*")
             {
                 decimal resultat = newnum * newnum2;
                 outputfield.Text = resultat.ToString("0.#######");
+                newnum = resultat;
             }
 
             else if (operationsym == "/")
             {
                 decimal resultat = newnum / newnum2;
                 outputfield.Text = resultat.ToString("0.#######");
+                newnum = resultat;
             }
         }
 
@@ -373,6 +377,11 @@ namespace Calculator_GUI
             operationsym = string.Empty;
             newnum = 0;
             newnum2 = 0;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
