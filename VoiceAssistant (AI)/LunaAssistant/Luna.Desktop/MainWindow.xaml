@@ -1,0 +1,58 @@
+<Window x:Class="Luna.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Luna" Height="520" Width="860" Background="White">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,16">
+            <TextBlock Text="Luna" Style="{StaticResource TitleText}"/>
+            <Border Width="8"/>
+            <TextBlock Text="– Dein Assistent" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Info Cards -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+                <!-- Spacer -->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Uhrzeit -->
+            <Border BorderBrush="Black" BorderThickness="2" Padding="16" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="Uhrzeit" Style="{StaticResource TitleText}"/>
+                    <TextBlock x:Name="TxtClock" Text="--:--" Style="{StaticResource ValueText}"/>
+                    <TextBlock x:Name="TxtTimezone"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Wetter -->
+            <Border BorderBrush="Black" BorderThickness="2" Padding="16" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="Wetter" Style="{StaticResource TitleText}"/>
+                    <TextBlock x:Name="TxtTemp" Text="-- °C" Style="{StaticResource ValueText}"/>
+                    <TextBlock x:Name="TxtWind"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Settings -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,16,0,0" VerticalAlignment="Bottom">
+            <TextBlock Text="Name:" VerticalAlignment="Center"/>
+            <TextBox x:Name="BoxName" Width="180"/>
+            <TextBlock Text="Ort:" VerticalAlignment="Center"/>
+            <TextBox x:Name="BoxCity" Width="220"/>
+            <Button Content="Ort suchen" Click="OnSearchCity"/>
+            <Button Content="Speichern" Click="OnSave"/>
+            <Button Content="Wake Word testen" Click="OnTestWake"/>
+        </StackPanel>
+    </Grid>
+</Window>
