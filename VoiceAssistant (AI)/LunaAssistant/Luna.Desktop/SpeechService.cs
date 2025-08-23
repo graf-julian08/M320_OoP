@@ -64,9 +64,26 @@ public class SpeechService
         }
     }
 
-    public void Speak(string text)
+    // NEU: asynchron warten, bis TTS fertig gesprochen hat
+    public Task SpeakAsync(string text)
     {
-        try { _tts.SpeakAsync(text); } catch { }
+        var tcs = new TaskCompletionSource();
+        try
+        {
+            EventHandler<SpeakCompletedEventArgs>? handler = null;
+            handler = (_, __) =>
+            {
+                _tts.SpeakCompleted -= handler;
+                tcs.TrySetResult();
+            };
+            _tts.SpeakCompleted += handler;
+            _tts.SpeakAsync(text);
+        }
+        catch
+        {
+            tcs.TrySetResult();
+        }
+        return tcs.Task;
     }
 
     private static RecognizerInfo? GetRecognizer(string startsWith)

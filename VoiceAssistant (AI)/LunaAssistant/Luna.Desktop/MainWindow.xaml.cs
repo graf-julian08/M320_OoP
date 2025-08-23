@@ -25,6 +25,9 @@ public partial class MainWindow : Window
         Loaded += OnLoaded;
         _clockTimer.Interval = TimeSpan.FromSeconds(1);
         _clockTimer.Tick += (_, _) => UpdateClock();
+
+        // Wake-Word Listener starten
+        SpeechService.Instance.StartWakeWordListening(OnWakeWord);
     }
 
     private async void OnLoaded(object sender, RoutedEventArgs e)
@@ -41,9 +44,6 @@ public partial class MainWindow : Window
 
         await RefreshWeatherAndTime();
         _clockTimer.Start();
-
-        // Wake-Word Listener starten
-        SpeechService.Instance.StartWakeWordListening(OnWakeWord);
     }
 
     private async Task RefreshWeatherAndTime()
@@ -53,7 +53,7 @@ public partial class MainWindow : Window
         _settings.Timezone = now.Timezone;
         await _settingsService.SaveAsync(_settings);
 
-        TxtTemp.Text = $"{now.TemperatureC:F0} °C";
+        TxtTemp.Text = $"{now.TemperatureC:F0} \u00B0C";
         TxtWind.Text = $"Wind {now.WindKmh:F0} km/h";
         TxtTimezone.Text = now.Timezone;
         UpdateClock(now.UtcOffsetSeconds);
@@ -86,19 +86,56 @@ public partial class MainWindow : Window
 
     private void OnTestWake(object sender, RoutedEventArgs e) => OnWakeWord();
 
-    private void OnWakeWord()
+    private async void OnWakeWord()
     {
+        await RunConversationLoop();
+    }
+
+    /// <summary>
+    /// Öffnet wiederholt das Listening-Fenster, bis die Antwort terminal ist.
+    /// </summary>
+    private async Task RunConversationLoop()
+    {
+        while (true)
+        {
+            var reply = await AskOnceAsync();
+            if (reply == null) break; // nichts verstanden
+
+            await SpeakAsync(reply.Text);
+            await RefreshWeatherAndTime();
+
+            if (!reply.ContinueListening)
+                break;
+            // sonst nächste Runde zuhören
+        }
+    }
+
+    /// <summary>
+    /// Öffnet einmal das Listening-Overlay, gibt eine AssistantReply zurück.
+    /// </summary>
+    private Task<AssistantReply?> AskOnceAsync()
+    {
+        var tcs = new TaskCompletionSource<AssistantReply?>();
         var listen = new ListeningWindow(async recognizedText =>
         {
-            if (string.IsNullOrWhiteSpace(recognizedText)) return;
+            if (string.IsNullOrWhiteSpace(recognizedText))
+            {
+                tcs.TrySetResult(null);
+                return;
+            }
 
             var tz = _settings.Timezone ?? "GMT";
             var response = await _router.HandleAsync(_settings.Latitude, _settings.Longitude, tz, _lastUtcOffsetSec, recognizedText);
-
-            SpeechService.Instance.Speak(response);
-            await RefreshWeatherAndTime();
+            tcs.TrySetResult(response);
         })
         { Owner = this };
+
         listen.ShowDialog();
+        return tcs.Task;
     }
+
+    /// <summary>
+    /// Spricht Text und wartet, bis TTS fertig ist (damit sich Zuhören nicht überlappt).
+    /// </summary>
+    private Task SpeakAsync(string text) => SpeechService.Instance.SpeakAsync(text);
 }

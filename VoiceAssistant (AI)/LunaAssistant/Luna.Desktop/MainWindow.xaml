@@ -13,7 +13,7 @@
         <StackPanel Orientation="Horizontal" Margin="0,0,0,16">
             <TextBlock Text="Luna" Style="{StaticResource TitleText}"/>
             <Border Width="8"/>
-            <TextBlock Text="– Dein Assistent" VerticalAlignment="Center"/>
+            <TextBlock Text="- Dein Assistent" VerticalAlignment="Center"/>
         </StackPanel>
 
         <!-- Info Cards -->
@@ -21,7 +21,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="20"/>
-                <!-- Spacer -->
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -38,7 +37,7 @@
             <Border BorderBrush="Black" BorderThickness="2" Padding="16" Grid.Column="2">
                 <StackPanel>
                     <TextBlock Text="Wetter" Style="{StaticResource TitleText}"/>
-                    <TextBlock x:Name="TxtTemp" Text="-- °C" Style="{StaticResource ValueText}"/>
+                    <TextBlock x:Name="TxtTemp" Text="-- &#176;C" Style="{StaticResource ValueText}"/>
                     <TextBlock x:Name="TxtWind"/>
                 </StackPanel>
             </Border>

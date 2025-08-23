@@ -1,7 +1,7 @@
 <Window x:Class="Luna.Desktop.ListeningWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Luna – Listening"
+        Title="Luna - Listening"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="#80000000"
@@ -21,7 +21,7 @@
         </Grid>
 
         <!-- Hilfe-Text unten -->
-        <TextBlock Grid.Row="1" Text="Sprich jetzt …" Foreground="White"
+        <TextBlock Grid.Row="1" Text="Sprich jetzt ..." Foreground="White"
                HorizontalAlignment="Center" Margin="0,24,0,24" FontSize="20"/>
     </Grid>
 </Window>

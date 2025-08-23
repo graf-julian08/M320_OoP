@@ -1,56 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
     internal class Mymath
     {
-        static internal int Add(int a, int b)
-        {
-            return a + b;
-
-        }   
-
+        // ggT (rekursiv)
         static internal int Calc_ggT(int a, int b)
         {
-            if (b==0)
-            {
-                return a;
-            }
-            else
-            {
-                return Calc_ggT(b, a % b); // rekursive Lösung für ggT
-            }
+            if (b == 0) return a;
+            return Calc_ggT(b, a % b);
         }
 
+        // kgV über ggT
         static internal int Calc_kgV(int a, int b)
         {
-            if (b==0)
-            {
-                return a;
-            }
-            else
-            {
-                return (a * b) / Calc_ggT(a, b); // rekursive Lösung für kgV
-            }
+            return (a / Calc_ggT(a, b)) * b;
         }
 
-        static internal int ReadInt(int a)
+        // Zahl einlesen (immer >0)
+        static internal int ReadInt()
         {
-            if (a <= 0)
+            int x;
+            while (!int.TryParse(Console.ReadLine(), out x) || x <= 0)
             {
-                Console.WriteLine("Die Zahl muss größer als 0 sein.");
-                return ReadInt(a);
+                Console.Write("Bitte positive Zahl: ");
             }
-            else 
-            { 
-                return a;
-            }
+            return x;
         }
 
+        // Array-Funktionen
+        static internal double Mean(int[] arr)
+        {
+            int sum = 0;
+            foreach (int x in arr) sum += x;
+            return (double)sum / arr.Length;
+        }
+
+        static internal int Min(int[] arr)
+        {
+            int m = arr[0];
+            foreach (int x in arr) if (x < m) m = x;
+            return m;
+        }
+
+        static internal int Max(int[] arr)
+        {
+            int m = arr[0];
+            foreach (int x in arr) if (x > m) m = x;
+            return m;
+        }
+
+        // Swap
+        static internal void Swap(ref int a, ref int b)
+        {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
     }
 }
