@@ -7,7 +7,8 @@ namespace ConsoleApp1
         // ggT (rekursiv)
         static internal int Calc_ggT(int a, int b)
         {
-            if (b == 0) return a;
+            if (b == 0) 
+            return a;
             return Calc_ggT(b, a % b);
         }
 
