@@ -13,22 +13,22 @@ namespace Calculator_AufgabeM320
         {
             if (operation == "+")
             {
-                int ergebnis = zahl1 + zahl2;
+                decimal ergebnis = zahl1 + zahl2;
                 Console.WriteLine(ergebnis);
             }
             else if (operation == "-")
             {
-                int ergebnis = zahl1 - zahl2;
+                decimal ergebnis = zahl1 - zahl2;
                 Console.WriteLine(ergebnis);
             }
             else if (operation == "*")
             {
-                int ergebnis = zahl1 * zahl2;
+                decimal ergebnis = zahl1 * zahl2;
                 Console.WriteLine(ergebnis);
             }
             else if (operation == "/")
             {
-                int ergebnis = zahl1 / zahl2;
+                decimal ergebnis = zahl1 / zahl2;
                 Console.WriteLine(ergebnis);
             }
             else
